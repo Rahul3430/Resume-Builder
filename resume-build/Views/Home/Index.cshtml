@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    /* Ensure the container has some padding and margin for spacing */
+    .container {
+        margin: 0 auto;
+        padding: 0 1rem; /* Add padding on the left and right */
+        height:80vh;
+    }
+
+    /* Style for the main heading */
+    h1 {
+        font-size: 2rem; /* 3xl in Tailwind translates to 2rem */
+        font-weight: 700; /* font-bold in Tailwind translates to 700 */
+        margin-bottom: 1rem; /* mb-4 in Tailwind translates to 1rem */
+        text-align: center; /* text-center in Tailwind translates to center */
+    }
+
+    /* Style for the paragraph */
+    p {
+        font-size: 1.125rem; /* text-lg in Tailwind translates to 1.125rem */
+        text-align: center; /* text-center in Tailwind translates to center */
+    }
+
+
+</style>
+
+<div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold mb-4 text-center">Welcome to Resume Builder</h1>
+    <p class="text-center text-lg">Build your professional resume easily with our resume builder tool.</p>
+    <div class="text-center mt-6">
+        <a href="/Home/ResumeBuild" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Lets Build</a>
+    </div>
+</div>

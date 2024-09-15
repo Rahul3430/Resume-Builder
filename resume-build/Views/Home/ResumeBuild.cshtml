@@ -1,0 +1,159 @@
+﻿@{
+    ViewData["Title"] = "Resume Builder";
+}
+
+
+<div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold mb-4 text-center">Enhanced Resume Builder</h1>
+    <div id="step-indicator" class="flex mb-8 rounded overflow-hidden">
+        <div class="step active" data-step="1">Personal Info</div>
+        <div class="step" data-step="2">Education</div>
+        <div class="step" data-step="3">Work Experience</div>
+        <div class="step" data-step="4">Skills</div>
+        <div class="step" data-step="5">Preview</div>
+    </div>
+    <form id="resume-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <!-- Personal Info -->
+        <div id="step1" class="step-content">
+            <h2 class="text-xl font-semibold mb-4">Personal Information</h2>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">
+                    Full Name
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fullName" type="text" placeholder="John Doe" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    Email
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="john@example.com" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                    Phone
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="(123) 456-7890" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="summary">
+                    Professional Summary
+                </label>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="summary" rows="4" placeholder="Brief overview of your professional background and career objectives"></textarea>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div id="step2" class="step-content hidden">
+            <h2 class="text-xl font-semibold mb-4">Education</h2>
+            <div id="education-list"></div>
+            <div id="education-form" class="mb-4">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="institution">
+                        Institution
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="institution" type="text" placeholder="University Name" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="degree">
+                        Degree
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="degree" type="text" placeholder="Bachelor of Science" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="field">
+                        Field of Study
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="field" type="text" placeholder="Computer Science">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="graduation">
+                        Graduation Year
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="graduation" type="text" placeholder="2024" required>
+                </div>
+                <button type="button" id="add-education" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Add Education
+                </button>
+            </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div id="step3" class="step-content hidden">
+            <h2 class="text-xl font-semibold mb-4">Work Experience</h2>
+            <div id="experience-list"></div>
+            <div id="experience-form" class="mb-4">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="company">
+                        Company
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="company" type="text" placeholder="Company Name" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="position">
+                        Position
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="position" type="text" placeholder="Job Title" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="start-date">
+                        Start Date
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="start-date" type="date" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="end-date">
+                        End Date
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="end-date" type="date">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="responsibilities">
+                        Responsibilities
+                    </label>
+                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="responsibilities" rows="4" placeholder="Describe your responsibilities and achievements"></textarea>
+                </div>
+                <button type="button" id="add-experience" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Add Experience
+                </button>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div id="step4" class="step-content hidden">
+            <h2 class="text-xl font-semibold mb-4">Skills</h2>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="skills">
+                    Skills (comma-separated)
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="skills" type="text" placeholder="JavaScript, React, Node.js, Python, SQL, Git">
+            </div>
+        </div>
+
+        <!-- Preview -->
+        <div id="step5" class="step-content hidden">
+            <h2 class="text-xl font-semibold mb-4">Resume Preview</h2>
+            <div id="resume-preview" class="border p-8 bg-white shadow-lg"></div>
+            <button type="button" id="download-pdf" class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Download as PDF
+            </button>
+            <button type="button" id="save-data" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Save Data
+            </button>
+        </div>
+
+        <div class="flex justify-between mt-6">
+            <button type="button" id="prev-step" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Previous
+            </button>
+            <button type="button" id="next-step" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Next
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="~/js/site.js"></script>
+}
